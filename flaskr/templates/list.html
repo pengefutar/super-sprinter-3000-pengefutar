@@ -1,0 +1,45 @@
+{% extends "form.html" %}
+{% block body %}
+   <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Story Title:
+        <dd><input type=text size=30 name=story_title>
+        <dt>User Story:
+        <dd><textarea name=user_story rows=5 cols=40></textarea>
+        <dt>Acceptance Criteria:
+        <dd><textarea name=acceptance_criteria rows=5 cols=40></textarea>
+        <dt>Business Value:
+        <dd><input type="number" name=business_value min="100" max="1500">
+        <dt>Estimation (h):
+        <dd><input type="number" name=estimation min="0.5" max="40">
+        <dd><input type=submit value=Create>
+      </dl>
+  </form>
+  <ul class=entries>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Story Title</td>
+            <td>User Story</td>
+            <td>Acceptance Criteria</td>
+            <td>Business Value</td>
+            <td>Estimation</td>
+            <td>Status</td>
+        </tr>
+    {% for entry in entries %}
+        <tr>
+            <td>{{ entry.id }}</td>
+            <td>{{ entry.story_title }}</td>
+            <td>{{ entry.user_story }}</td>
+            <td>{{ entry.acceptance_criteria }}</td>
+            <td>{{ entry.business_value }}</td>
+            <td>{{ entry.estimation }}</td>
+            <td>{{ entry.status }}</td>
+        </tr>
+    </table>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
+
