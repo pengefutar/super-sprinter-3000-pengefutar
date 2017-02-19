@@ -7,7 +7,7 @@ class UserStories(Model):
     user_story = TextField()
     acceptance_criteria = TextField()
     business_value = IntegerField()
-    estimation = IntegerField()
+    estimation = FloatField()
     status = CharField()
 
     class Meta:
