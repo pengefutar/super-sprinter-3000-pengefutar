@@ -1,7 +1,0 @@
-graft flaskr/templates
-graft flaskr/static
-graft flaskr/csv
-include flaskr/connectdatabase.py
-include flaskr/models.py
-include flaskr/create_entries.py
-include flaskr/build.py
